@@ -64,6 +64,20 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # Hyprland Desktop
+  wayland.windowManager.hyprland = {
+    # Whether to enable Hyprland wayland compositor
+    enable = true;
+    # The hyprland package to use
+    package = pkgs.hyprland;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+
+    # Optional
+    # Whether to enable hyprland-session.target on hyprland startup
+    systemd.enable = true;
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 }
